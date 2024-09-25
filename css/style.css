@@ -1,139 +1,141 @@
-/* Général */
+/* Global Styles */
 body {
-    font-family: 'Calibri', sans-serif; /* Police par défaut dans les CV Word */
-    background-color: #fff;
-    color: #000;
-    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
     margin: 0;
-    font-size: 16px; /* Taille de texte standard sur Word */
-    line-height: 1.5;
+    padding: 0;
+    color: #333;
 }
 
-h1, h2, h3 {
-    font-family: 'Calibri', sans-serif;
-    color: #333;
-    font-weight: bold;
+.container {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 900px;
+    margin: 20px auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-    font-size: 28px;
-    text-align: center;
-    margin-bottom: 0;
-    color: #2E86C1; /* Couleur personnalisée pour le titre */
-}
-
-h2 {
-    font-size: 24px;
-    margin-top: 40px;
+    font-size: 2.5rem;
+    color: #0056b3;
     margin-bottom: 10px;
-    border-bottom: 1px solid #000;
-    padding-bottom: 5px;
-    color: #1F618D; /* Couleur pour les sous-titres */
 }
 
 h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #2E86C1;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+h4 {
+    font-size: 1.25rem;
+    margin-top: 30px;
+    color: #0056b3;
+    border-bottom: 2px solid #0056b3;
+    padding-bottom: 5px;
 }
 
 p {
-    font-size: 16px;
-    margin: 10px 0;
-    color: #000;
+    margin-bottom: 5px;
 }
 
 ul {
-    margin-left: 20px;
     padding-left: 20px;
-    list-style-type: disc; /* Points devant chaque élément de liste */
+}
+
+ul ul {
+    padding-left: 20px;
+    list-style-type: circle;
 }
 
 li {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+}
+
+/* Header (Name, Contact Info) */
+.text-center h1 {
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+.text-center p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.text-center h3 {
+    margin-top: 5px;
     color: #333;
 }
 
-/* Conteneur général */
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    background-color: white;
-}
-
-/* Header - Informations personnelles */
-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-header h1 {
-    margin-bottom: 5px;
-    color: #2E86C1;
-}
-
-header p {
-    margin: 0;
-    font-size: 14px;
-    color: #555;
-}
-
-/* Section style */
+/* Sections (Skills, Experience, etc.) */
 section {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
-/* Pour les titres des sections */
-section h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    border-bottom: 2px solid #666;
-    padding-bottom: 5px;
-    color: #1F618D;
-}
-
-/* Ajustement pour les listes */
-ul {
-    padding-left: 20px;
-}
-
-/* Alignement des éléments d'expériences */
-.experience-title {
+section h4 {
     font-weight: bold;
-    margin-bottom: 5px;
-    color: #2E86C1;
-}
-
-.experience-date {
-    font-style: italic;
-    color: #555;
-}
-
-/* Ajustements spécifiques */
-section .section-header {
-    font-weight: bold;
-    font-size: 18px;
-    margin-bottom: 5px;
-    color: #1F618D;
+    text-transform: uppercase;
 }
 
 section ul {
-    margin-left: 20px;
+    margin-top: 10px;
 }
 
-section li {
+section ul ul {
+    margin-top: 5px;
+}
+
+/* Experience section - adding extra margin for clarity */
+section ul li strong {
+    display: block;
     margin-bottom: 5px;
+    font-weight: bold;
 }
 
-/* Footer pour les centres d'intérêt */
-footer {
-    font-size: 16px;
-    text-align: center;
-    padding-top: 20px;
-    border-top: 1px solid #ccc;
-    margin-top: 40px;
+/* Centers of interest styling */
+section#centers-of-interest ul {
+    list-style-type: square;
+}
+
+/* Highlight specific sections if needed */
+#experience ul li strong {
     color: #333;
+    font-size: 1.1rem;
+}
+
+#competences-techniques li {
+    font-size: 1.1rem;
+}
+
+#competences-techniques li strong {
+    color: #0056b3;
+}
+
+#formations li {
+    font-size: 1.1rem;
+}
+
+/* Adding extra spacing for diplomas/formation */
+#formations ul li {
+    margin-bottom: 10px;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+
+    h3, h4 {
+        font-size: 1.2rem;
+    }
+    
+    p, ul li {
+        font-size: 1rem;
+    }
 }
