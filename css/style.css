@@ -138,4 +138,9 @@ section#centers-of-interest ul {
     p, ul li {
         font-size: 1rem;
     }
+
+    section h4 ul li strong {
+    display: inline;
+    }
+
 }
