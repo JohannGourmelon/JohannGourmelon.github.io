@@ -15,7 +15,9 @@ function createPersonalInfoSection(cvData) {
   div.classList.add("text-center");
   div.innerHTML = `
         <h1>${cvData.nom || "Nom non disponible"}</h1>
-        <p>${cvData.adresse || "Adresse non disponible"} | ${cvData.email || "Email non disponible"} | ${cvData.telephone || "Téléphone non disponible"}</p>
+        <p>${cvData.adresse || "Adresse non disponible"} | ${
+    cvData.email || "Email non disponible"
+  } | ${cvData.telephone || "Téléphone non disponible"}</p>
         <h3>${cvData.profession || "Profession non disponible"}</h3>
     `;
   createSection("Informations personnelles", div, "personal-info");
@@ -27,8 +29,13 @@ function createTechnicalSkillsSection(competenceData) {
   Object.keys(competenceData).forEach((key) => {
     const competence = competenceData[key];
     const li = document.createElement("li");
-    li.innerHTML = `<strong>${competence.intitule || "Intitulé non disponible"} :</strong>`;
-    if (Array.isArray(competence.description) && typeof competence.description[0] === "object") {
+    li.innerHTML = `<strong>${
+      competence.intitule || "Intitulé non disponible"
+    } :</strong>`;
+    if (
+      Array.isArray(competence.description) &&
+      typeof competence.description[0] === "object"
+    ) {
       const innerUl = document.createElement("ul");
       competence.description.forEach((item) => {
         const subLi = document.createElement("li");
@@ -38,7 +45,9 @@ function createTechnicalSkillsSection(competenceData) {
       });
       li.appendChild(innerUl);
     } else {
-      li.innerHTML += ` ${competence.description || "Description non disponible"}`;
+      li.innerHTML += ` ${
+        competence.description || "Description non disponible"
+      }`;
     }
     ul.appendChild(li);
   });
@@ -50,7 +59,9 @@ function createFunctionalSkillsSection(competenceFonctionnelleData) {
   Object.keys(competenceFonctionnelleData).forEach((key) => {
     const competence = competenceFonctionnelleData[key];
     const li = document.createElement("li");
-    li.innerHTML = `<strong>${competence.intitule || "Intitulé non disponible"} :</strong> ${competence.description || "Description non disponible"}`;
+    li.innerHTML = `<strong>${
+      competence.intitule || "Intitulé non disponible"
+    } :</strong> ${competence.description || "Description non disponible"}`;
     ul.appendChild(li);
   });
   createSection("Compétences Fonctionnelles", ul, "functional-skills");
@@ -61,7 +72,9 @@ function createFormationSection(formationData) {
   Object.keys(formationData).forEach((key) => {
     const formation = formationData[key];
     const li = document.createElement("li");
-    li.innerHTML = `${formation.dates_debut || ""} : <strong>${formation.diplome}</strong> - ${formation.etablissement}`;
+    li.innerHTML = `${formation.dates_debut || ""} : <strong>${
+      formation.diplome
+    }</strong> - ${formation.etablissement}`;
     ul.appendChild(li);
   });
   createSection("Diplômes et Formations", ul, "formation");
@@ -72,7 +85,9 @@ function createExperiencesSection(experienceData) {
   Object.keys(experienceData).forEach((key) => {
     const experience = experienceData[key];
     const li = document.createElement("li");
-    li.innerHTML = `<strong>${experience.dates_debut || ""} – ${experience.dates_fin || ""} : ${experience.poste} – ${experience.entreprise}</strong>`;
+    li.innerHTML = `<strong>${experience.dates_debut || ""} – ${
+      experience.dates_fin || ""
+    } : ${experience.poste} – ${experience.entreprise}</strong>`;
     const innerUl = document.createElement("ul");
     experience.description.forEach((desc) => {
       const subLi = document.createElement("li");
@@ -94,4 +109,15 @@ function createInterestsSection(centresInteretData) {
     ul.appendChild(li);
   });
   createSection("Centres d'intérêt", ul, "interests");
+}
+
+// Fonction pour créer dynamiquement le bouton de Dark Mode avec un curseur
+function createDarkModeButton() {
+  const button = document.createElement("div");
+  button.id = "toggle-darkmode";
+  button.classList.add("toggle-darkmode");
+
+  // Ajouter le bouton dans un endroit spécifique du DOM, par exemple dans le container
+  const container = document.querySelector(".container");
+  container.insertBefore(button, container.firstChild);
 }

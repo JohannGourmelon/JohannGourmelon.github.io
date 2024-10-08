@@ -22,6 +22,7 @@ async function loadAllScripts() {
     await loadScript("js/firebase.js");
     await loadScript("js/data.js");
     await loadScript("js/domBuilder.js");
+    await loadScript("js/darkmode.js"); // Charger le script du dark mode
 
     // Une fois les scripts chargés, on peut initialiser l'application
     init();
@@ -43,6 +44,10 @@ async function init() {
     createFormationSection(data.formationData);
     createExperiencesSection(data.experienceData);
     createInterestsSection(data.centresInteretData);
+    // Créer le bouton pour le Dark Mode
+    createDarkModeButton();
+    // Activer le Dark Mode après avoir chargé les sections
+    setupDarkModeToggle();
   } catch (error) {
     console.error("Erreur lors de l'initialisation :", error);
   }
