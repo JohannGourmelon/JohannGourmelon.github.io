@@ -1,3 +1,35 @@
+// Fonction pour charger un script dynamiquement
+function loadScript(src) {
+  return new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = src;
+    script.onload = () => resolve();
+    script.onerror = () =>
+      reject(new Error(`Erreur lors du chargement du script ${src}`));
+    document.head.appendChild(script);
+  });
+}
+
+// Charger tous les scripts dynamiquement
+async function loadAllScripts() {
+  try {
+    await loadScript(
+      "https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"
+    );
+    await loadScript(
+      "https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"
+    );
+    await loadScript("js/firebase.js");
+    await loadScript("js/data.js");
+    await loadScript("js/domBuilder.js");
+
+    // Une fois les scripts chargés, on peut initialiser l'application
+    init();
+  } catch (error) {
+    console.error("Erreur lors du chargement des scripts :", error);
+  }
+}
+
 // Fonction pour initialiser l'application
 async function init() {
   try {
@@ -16,5 +48,5 @@ async function init() {
   }
 }
 
-// Charger les données du CV lors du chargement de la page
-init();
+// Charger les scripts lors du chargement de la page
+loadAllScripts();
