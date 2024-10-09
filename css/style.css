@@ -162,3 +162,21 @@ body.dark-mode a {
     font-size: 1rem;
   }
 }
+
+/* Style pour la section en cours de déplacement */
+.dragging {
+    opacity: 0.5;
+    background-color: #f0f0f0;
+    border: 2px dashed #0056b3;
+}
+
+/* Style pour les sections survolées pendant le drag */
+.hovered {
+    border: 2px solid #0056b3;
+    background-color: #e0e0e0;
+}
+
+/* Ajout d'une transition pour un effet plus fluide */
+section {
+    transition: all 0.3s ease;
+}

@@ -47,7 +47,10 @@ async function init() {
     // Créer le bouton pour le Dark Mode
     createDarkModeButton();
     // Activer le Dark Mode après avoir chargé les sections
-    setupDarkModeToggle();
+      setupDarkModeToggle();
+      // Activer le drag and drop pour le conteneur de sections
+      const cvContainer = document.querySelector(".cv-sections");
+      enableDragAndDrop(cvContainer);
   } catch (error) {
     console.error("Erreur lors de l'initialisation :", error);
   }
