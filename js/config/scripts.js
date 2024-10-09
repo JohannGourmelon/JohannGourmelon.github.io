@@ -8,6 +8,7 @@ const scripts = [
 
     // Charger le script de configuration des données
     "js/config/data.js",
+    
 
     // Charger le script de construction des sections
     "js/sections/sectionBuilder.js",
@@ -22,5 +23,8 @@ const scripts = [
 
     // Charger les fonctionnalités
     "js/features/dragAndDrop.js",
-    "js/features/darkmode.js"
+    "js/features/darkmode.js",
+
+    // Charger le script d'initialisation de l'application
+    "js/config/init.js"
 ];
